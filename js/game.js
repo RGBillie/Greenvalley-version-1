@@ -2,6 +2,11 @@ let game = new Phaser.Game({
   width: 1050,
   height: 740, 
   backgroundColor: '#ef92be', 
+  type: Phaser.AUTO, // Auto-switch to Canvas if WebGL fails
+  render: {
+    roundPixels: true,
+    transparent: false
+  },
   physics: {
     default: 'arcade',
     arcade: {
@@ -10,10 +15,6 @@ let game = new Phaser.Game({
         fixedStep: true // Helps with physics stability
     }
   },
-  render: {
-      roundPixels: true, // Round pixel positions
-      transparent: false
-  },
   scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
@@ -21,6 +22,9 @@ let game = new Phaser.Game({
     height: 720   // Your game's base height
   },
   parent: 'game',
+  fps: {
+    forceSetTimeOut: true  // Helps on slow CPUs
+  }
 });
 
 game.scene.add('load', Load);
