@@ -8,6 +8,25 @@ class Playlevel2 extends Phaser.Scene {
   }
 
   create() {
+    this.isLowEndDevice = this.game.device.os.android || 
+        this.game.device.os.iOS || 
+        (this.game.device.browser.safari && !this.game.device.os.desktop) || 
+        (this.textures.get('ground').getSourceImage().width < 4096);
+
+    if (this.isLowEndDevice) {
+        // Reduce particles if you have any
+        if (this.rain && this.rain.setQuantity) {
+            this.rain.setQuantity(5);
+        }
+
+        // Disable some effects if they exist
+        if (this.colorOverlay) {
+            this.colorOverlay.setVisible(false);
+        }
+
+        // Reduce physics checks
+        this.physics.world.setFPS(30);
+    }
     if (this.scene.key === "Playlevel2") { 
         // 1. BLUE OVERLAY
         this.add.rectangle(
@@ -768,5 +787,71 @@ objects.forEach(data => {
             this.player.setTexture("alexember"); // Change to Alex with Ember texture
             handlePlayerMovement(this.player, this.keys, this.depthSortedObjects);
         }
+    }
+
+    destroy() {
+        // Clean up particles
+        if (this.rain) {
+            this.rain.destroy();
+        }
+    
+        // Clean up graphics objects
+        if (this.darkness) {
+            this.darkness.destroy();
+        }
+        if (this.gradient) {
+            this.gradient.destroy();
+        }
+    
+        // Clean up intervals
+        if (this.typewriterInterval) {
+            clearInterval(this.typewriterInterval);
+        }
+        if (this.emberFollowPlayer) {
+            this.emberFollowPlayer.destroy();
+        }
+    
+        // Clean up sounds
+        if (this.music) {
+            this.music.stop();
+            this.music.destroy();
+        }
+    
+        // Clean up UI elements
+        if (this.dialogBubble) {
+            this.dialogBubble.destroy();
+        }
+        if (this.dialogText) {
+            this.dialogText.destroy();
+        }
+        if (this.tips) {
+            this.tips.destroy();
+        }
+    
+        // Clean up collider groups
+        this.buildingColliders?.destroy();
+        this.treeColliders?.destroy();
+        this.stoneColliders?.destroy();
+        this.fenceColliders?.destroy();
+        this.flowerColliders?.destroy();
+        this.benchColliders?.destroy();
+        this.edges?.destroy();
+        this.block?.destroy();
+    
+        // Clean up special objects
+        if (this.lilypads) {
+            this.lilypads.destroy();
+        }
+        if (this.colorOverlay) {
+            this.colorOverlay.destroy();
+        }
+    
+        // Remove update listener for gradient
+        this.events.off('update');
+    
+        // Call parent destroy
+        super.destroy();
+        
+        console.log('Playlevel2 scene destroyed'); // For debugging
     }
 }

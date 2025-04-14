@@ -12,6 +12,25 @@ class Playlevel3 extends Phaser.Scene {
   }
 
   create() {
+    this.isLowEndDevice = this.game.device.os.android || 
+        this.game.device.os.iOS || 
+        (this.game.device.browser.safari && !this.game.device.os.desktop) || 
+        (this.textures.get('ground').getSourceImage().width < 4096);
+
+    if (this.isLowEndDevice) {
+        // Reduce particles if you have any
+        if (this.rain && this.rain.setQuantity) {
+            this.rain.setQuantity(5);
+        }
+
+        // Disable some effects if they exist
+        if (this.colorOverlay) {
+            this.colorOverlay.setVisible(false);
+        }
+
+        // Reduce physics checks
+        this.physics.world.setFPS(30);
+    }
     if (this.scene.key === "Playlevel3") { 
         // 1. BLUE OVERLAY
         this.add.rectangle(
@@ -727,7 +746,35 @@ if (this.currentInteractable && Phaser.Input.Keyboard.JustDown(this.keys.e) && !
         };
         
         // Start the sequence
-        playNextStep();
+        playNextStep(); 
+    }
+    destroy() {
+        // Clean up particles
+        if (this.rain) {
+            this.rain.destroy();
+        }
+        
+        // Clean up intervals
+        if (this.typewriterInterval) {
+            clearInterval(this.typewriterInterval);
+        }
+        
+        // Clean up sounds
+        if (this.music) {
+            this.music.stop();
+            this.music.destroy();
+        }
+        
+        // Clean up any other custom objects
+        if (this.interactableObjects) {
+            this.interactableObjects.forEach(obj => {
+                if (obj.questionMark) obj.questionMark.destroy();
+                if (obj.interactionZone) obj.interactionZone.destroy();
+            });
+        }
+        
+        // Call parent destroy
+        super.destroy();
     }
     
 }

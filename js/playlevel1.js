@@ -12,6 +12,25 @@ class Playlevel1 extends Phaser.Scene {
   }
 
   create() {
+    this.isLowEndDevice = this.game.device.os.android || 
+        this.game.device.os.iOS || 
+        (this.game.device.browser.safari && !this.game.device.os.desktop) || 
+        (this.textures.get('ground').getSourceImage().width < 4096);
+
+    if (this.isLowEndDevice) {
+        // Reduce particles if you have any
+        if (this.rain && this.rain.setQuantity) {
+            this.rain.setQuantity(5);
+        }
+
+        // Disable some effects if they exist
+        if (this.colorOverlay) {
+            this.colorOverlay.setVisible(false);
+        }
+
+        // Reduce physics checks
+        this.physics.world.setFPS(30);
+    }
     this.buildingColliders = this.physics.add.staticGroup();
     this.treeColliders = this.physics.add.staticGroup();
     this.stoneColliders = this.physics.add.staticGroup();
@@ -1035,5 +1054,84 @@ hideNPCDialog(npc) {
             if (this.hintText) this.hintText.destroy();
             this.hintTimer = null; // Clear the timer reference
         }, null, this);
+    }
+
+    destroy() {
+        // Clean up particles (if you add them later)
+        if (this.rain) {
+            this.rain.destroy();
+        }
+    
+        // Clean up intervals
+        if (this.typewriterInterval) {
+            clearInterval(this.typewriterInterval);
+        }
+        if (this.emberFollowPlayer) {
+            this.emberFollowPlayer.destroy();
+        }
+    
+        // Clean up sounds
+        if (this.music) {
+            this.music.stop();
+            this.music.destroy();
+        }
+    
+        // Clean up NPCs and their chat bubbles
+        this.npcs?.forEach(npc => {
+            if (npc.sprite?.chatBubble) {
+                npc.sprite.chatBubble.destroy();
+            }
+            if (npc.moveTimer) {
+                npc.moveTimer.destroy();
+            }
+        });
+    
+        // Clean up Greg's chat bubble
+        if (this.greg?.chatBubble) {
+            this.greg.chatBubble.destroy();
+        }
+    
+        // Clean up dialog UI elements
+        if (this.dialogBubble) {
+            this.dialogBubble.destroy();
+        }
+        if (this.dialogText) {
+            this.dialogText.destroy();
+        }
+        this.optionTexts?.forEach(text => text.destroy());
+    
+        // Clean up hint elements
+        if (this.hintBubble) {
+            this.hintBubble.destroy();
+        }
+        if (this.hintText) {
+            this.hintText.destroy();
+        }
+        if (this.hintBubble1) {
+            this.hintBubble1.destroy();
+        }
+        if (this.hintText1) {
+            this.hintText1.destroy();
+        }
+    
+        // Clean up timers
+        if (this.hintTimer) {
+            this.time.removeEvent(this.hintTimer);
+        }
+        if (this.hintTimer1) {
+            this.time.removeEvent(this.hintTimer1);
+        }
+    
+        // Clean up colliders (optional, Phaser usually handles this)
+        this.buildingColliders?.destroy();
+        this.treeColliders?.destroy();
+        this.stoneColliders?.destroy();
+        this.fenceColliders?.destroy();
+        this.flowerColliders?.destroy();
+        this.benchColliders?.destroy();
+        this.edges?.destroy();
+    
+        // Call parent destroy
+        super.destroy();
     }
 }

@@ -12,7 +12,25 @@ class Playlevel5 extends Phaser.Scene {
     }
   
     create() {
-  
+        this.isLowEndDevice = this.game.device.os.android || 
+        this.game.device.os.iOS || 
+        (this.game.device.browser.safari && !this.game.device.os.desktop) || 
+        (this.textures.get('ground').getSourceImage().width < 4096);
+
+    if (this.isLowEndDevice) {
+        // Reduce particles if you have any
+        if (this.rain && this.rain.setQuantity) {
+            this.rain.setQuantity(5);
+        }
+
+        // Disable some effects if they exist
+        if (this.colorOverlay) {
+            this.colorOverlay.setVisible(false);
+        }
+
+        // Reduce physics checks
+        this.physics.world.setFPS(30);
+    }
       this.buildingColliders = this.physics.add.staticGroup();
       this.treeColliders = this.physics.add.staticGroup();
       this.stoneColliders = this.physics.add.staticGroup();
@@ -717,4 +735,79 @@ showGregDialogue() {
               });
           });
       }
+
+      destroy() {
+        // Remove all event listeners
+        this.input.keyboard.removeAllListeners();
+        this.emberFollowPlayer.destroy();
+        
+        // Destroy all groups
+        this.buildingColliders.destroy();
+        this.treeColliders.destroy();
+        this.stoneColliders.destroy();
+        this.fenceColliders.destroy();
+        this.flowerColliders.destroy();
+        this.benchColliders.destroy();
+        this.edges.destroy();
+        
+        // Destroy NPC movement timers
+        this.npcs.forEach(npc => {
+            if (npc.moveTimer) {
+                npc.moveTimer.destroy();
+            }
+        });
+        
+        // Destroy all sprites and objects
+        this.depthSortedObjects.forEach(obj => {
+            if (obj && obj.destroy) {
+                obj.destroy();
+            }
+        });
+        
+        // Destroy UI elements
+        if (this.dialogBubble) this.dialogBubble.destroy();
+        if (this.dialogText) this.dialogText.destroy();
+        this.optionTexts.forEach(text => {
+            if (text) text.destroy();
+        });
+        
+        // Destroy NPCs
+        if (this.lea) this.lea.destroy();
+        if (this.jacob) this.jacob.destroy();
+        if (this.greg) this.greg.destroy();
+        if (this.gregHitbox) this.gregHitbox.destroy();
+        if (this.ember) this.ember.destroy();
+        
+        // Destroy player
+        if (this.player) this.player.destroy();
+        
+        // Destroy physics
+        this.physics.world.shutdown();
+        
+        // Clear all tweens
+        this.tweens.killAll();
+        
+        // Clear references
+        this.buildingColliders = null;
+        this.treeColliders = null;
+        this.stoneColliders = null;
+        this.fenceColliders = null;
+        this.flowerColliders = null;
+        this.benchColliders = null;
+        this.edges = null;
+        this.npcs = null;
+        this.depthSortedObjects = null;
+        this.dialogBubble = null;
+        this.dialogText = null;
+        this.optionTexts = null;
+        this.lea = null;
+        this.jacob = null;
+        this.greg = null;
+        this.gregHitbox = null;
+        this.ember = null;
+        this.player = null;
+        this.keys = null;
+        this.nearNPC = null;
+        this.currentTalkingNPC = null;
+    }
   }

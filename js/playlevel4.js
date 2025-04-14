@@ -14,6 +14,25 @@ class Playlevel4 extends Phaser.Scene {
   }
 
   create() {  
+    this.isLowEndDevice = this.game.device.os.android || 
+        this.game.device.os.iOS || 
+        (this.game.device.browser.safari && !this.game.device.os.desktop) || 
+        (this.textures.get('ground').getSourceImage().width < 4096);
+
+    if (this.isLowEndDevice) {
+        // Reduce particles if you have any
+        if (this.rain && this.rain.setQuantity) {
+            this.rain.setQuantity(5);
+        }
+
+        // Disable some effects if they exist
+        if (this.colorOverlay) {
+            this.colorOverlay.setVisible(false);
+        }
+
+        // Reduce physics checks
+        this.physics.world.setFPS(30);
+    }
     this.buildingColliders = this.physics.add.staticGroup();
     this.treeColliders = this.physics.add.staticGroup();
     this.stoneColliders = this.physics.add.staticGroup();
@@ -910,5 +929,86 @@ objects.forEach(data => {
             this.emberKing.edgeIndicator.setVisible(false);
             this.emberKing.edgePulseTween.pause();
         }
+    }
+
+    destroy() {
+        // Clean up particles (if you add them later)
+        if (this.rain) {
+            this.rain.destroy();
+        }
+    
+        // Clean up special ember sprites
+        if (this.emberRed) this.emberRed.destroy();
+        if (this.emberYellow) this.emberYellow.destroy();
+        if (this.emberTeal) this.emberTeal.destroy();
+        if (this.emberKing) {
+            if (this.emberKing.exclamationMark) this.emberKing.exclamationMark.destroy();
+            if (this.emberKing.edgeIndicator) this.emberKing.edgeIndicator.destroy();
+            if (this.emberKing.edgePulseTween) this.emberKing.edgePulseTween.stop();
+            if (this.emberKing.interactionZone) this.emberKing.interactionZone.destroy();
+        }
+        if (this.emberGreen) this.emberGreen.destroy();
+    
+        // Clean up animations
+        if (this.lilypads) {
+            this.lilypads.destroy();
+        }
+    
+        // Clean up intervals and timers
+        if (this.typewriterInterval) {
+            clearInterval(this.typewriterInterval);
+        }
+        if (this.emberFollowPlayer) {
+            this.emberFollowPlayer.destroy();
+        }
+    
+        // Clean up sounds
+        if (this.music) {
+            this.music.stop();
+            this.music.destroy();
+        }
+    
+        // Clean up UI elements
+        if (this.dialogBubble) {
+            this.dialogBubble.destroy();
+        }
+        if (this.dialogText) {
+            this.dialogText.destroy();
+        }
+        if (this.tips) {
+            this.tips.destroy();
+        }
+    
+        // Clean up option texts
+        this.optionTexts?.forEach(text => {
+            text.destroy();
+        });
+    
+        // Clean up all active tweens
+        this.tweens.getTweens().forEach(tween => {
+            if (tween.isPlaying()) {
+                tween.stop();
+            }
+        });
+    
+        // Clean up collider groups
+        this.buildingColliders?.destroy();
+        this.treeColliders?.destroy();
+        this.stoneColliders?.destroy();
+        this.fenceColliders?.destroy();
+        this.flowerColliders?.destroy();
+        this.benchColliders?.destroy();
+        this.edges?.destroy();
+        this.block?.destroy();
+    
+        // Remove event listeners
+        this.events.off('update');
+        this.input.keyboard.off('keydown');
+        this.input.keyboard.off('keyup');
+    
+        // Call parent destroy
+        super.destroy();
+        
+        console.log('Playlevel4 scene destroyed'); // For debugging
     }
 }
