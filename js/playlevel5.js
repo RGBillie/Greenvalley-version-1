@@ -191,65 +191,8 @@ class Playlevel5 extends Phaser.Scene {
   
   
         // **PLACERING AF VEJE OG PLADS**
-        this.add.image(2484, 2681, "roadhorizontal").setDepth(1);
-        this.add.image(2830, 2681, "plazabottom").setDepth(1);
-        this.add.image(3177, 2681, "roadhorizontal").setDepth(1);
-        this.add.image(2829, 2443, "roadvertical").setDepth(1);
-        this.add.image(2138, 2681, "plazamiddle").setDepth(1);
-        this.add.image(1793, 2681, "roadhorizontal").setDepth(1);
-        this.add.image(2136, 1017, "plazatop").setDepth(1);
-        this.add.image(1790, 1015, "roadhorizontal").setDepth(1);
-        this.add.image(1443, 1015, "plazabottom").setDepth(1);
-        this.add.image(1095, 780, "plazacornertopleft").setDepth(1);
-        this.add.image(1435, 780, "plazacornertopright").setDepth(1);
-        this.add.image(1098, 1015, "plazacornerbottomleft").setDepth(1);
-        this.add.image(2480, 1015, "roadhorizontal").setDepth(1);
-        this.add.image(2827, 1015, "roadhorizontal").setDepth(1);
-        this.add.image(2138, 1255, "roadvertical").setDepth(1);
-        this.add.image(2138, 1493, "roadvertical").setDepth(1);
-        this.add.image(2138, 1730, "roadvertical").setDepth(1);
-        this.add.image(2138, 1968, "roadvertical").setDepth(1);
-        this.add.image(2138, 2444, "roadvertical").setDepth(1);
-        this.add.image(2138, 2206, "roadvertical").setDepth(1);
-        this.add.image(2138, 2918, "roadvertical").setDepth(1);
-        this.add.image(2138, 3154, "roadvertical").setDepth(1);
-        this.add.image(2138, 3392, "roadvertical").setDepth(1);
-        this.add.image(2138, 3629, "roadvertical").setDepth(1);
-        this.add.image(2136, 3865, "roadtcross").setDepth(1);
-        this.add.image(2138, 4105, "roadvertical").setDepth(1);
-        this.add.image(2138, 4343, "roadvertical").setDepth(1);
-        this.add.image(1792, 3865, "roadhorizontal").setDepth(1);
-        this.add.image(1445, 3865, "roadhorizontal").setDepth(1);
-        this.add.image(1099, 3865, "roadhorizontal").setDepth(1);
-        this.add.image(752, 3865, "roadhorizontal").setDepth(1);
-        this.add.image(3520, 2681, "roadbreaklefttobottom").setDepth(1);
-        this.add.image(3522, 2917, "roadvertical").setDepth(1);
-        this.add.image(3522, 3155, "roadvertical").setDepth(1);
-        this.add.image(3522, 3393, "roadvertical").setDepth(1);
-        this.add.image(3522, 3631, "roadvertical").setDepth(1);
-        this.add.image(3522, 3870, "roadvertical").setDepth(1);
-        this.add.image(3524, 4108, "roadbreakrighttotop").setDepth(1);
-        this.add.image(3868, 4109, "roadhorizontal").setDepth(1);
-        this.add.image(4212, 4109, "plazabottom").setDepth(1);
-        this.add.image(4212, 3871, "roadvertical").setDepth(1);
-        this.add.image(4558, 4109, "roadhorizontal").setDepth(1);
-        this.add.image(4904, 4109, "roadhorizontal").setDepth(1);
-        this.add.image(5250, 4109, "roadhorizontal").setDepth(1);
-        this.add.image(3170, 1015, "roadend").setDepth(1).setFlipX(true);
-        this.add.image(407, 3862, "roadend").setDepth(1);
-  
-  
-        this.add.image(1100, 2210, "roadvertical").setDepth(1);
-        this.add.image(1100, 2446, "plazamiddle").setDepth(1);
-        this.add.image(1100, 2682, "plazamiddle").setDepth(1);
-        this.add.image(1100, 2919, "plazabottom").setDepth(1);
-        this.add.image(752, 2682, "plazaleft").setDepth(1);
-        this.add.image(1447, 2682, "plazamiddle").setDepth(1);
-        this.add.image(1443, 2918, "plazacornerbottomright").setDepth(1);
-        this.add.image(756, 2918, "plazacornerbottomleft").setDepth(1);
-        this.add.image(1444, 2448, "plazacornertopright").setDepth(1);
-        this.add.image(754, 2446, "plazacornertopleft").setDepth(1);
-  
+        this.add.image(2664, 2271, "greenvalleyroads").setDepth(1);
+        
         //MUSIC
         //let music;
         //music = this.sound.add('musicCozy', { loop: true, volume: 0.1 });
@@ -297,6 +240,10 @@ class Playlevel5 extends Phaser.Scene {
             f: Phaser.Input.Keyboard.KeyCodes.F,
             p: Phaser.Input.Keyboard.KeyCodes.P,
             c: Phaser.Input.Keyboard.KeyCodes.C,
+            arrowUp: Phaser.Input.Keyboard.KeyCodes.UP,
+            arrowDown: Phaser.Input.Keyboard.KeyCodes.DOWN,
+            arrowLeft: Phaser.Input.Keyboard.KeyCodes.LEFT,
+            arrowRight: Phaser.Input.Keyboard.KeyCodes.RIGHT
         });
   
         // **PLACERING AF NPC'ER**

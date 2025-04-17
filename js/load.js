@@ -26,19 +26,14 @@ class Load {
         'Bench', 'BlueFlower', 'WhiteFlower', 'RedFlower', 'BlueHouse', 'OrangeHouse',
         'BushBlueFlowers', 'BushPinkFlowers', 'CityHall', 'DecorativeFence', 'GreenHouse',
         'PurpleHouse', 'Ground', 'Lake', 'LakeWeeds', 'SmallLakeWeeds', 'LeftEdgeForest',
-        'RightEdgeForest', 'MediumStone', 'SmallStone', 'TinyStone', 'PlazaBottom',
-        'PlazaCornerTopLeft', 'PlazaCornerTopRight', 'PlazaCornerBottomLeft', 'PlazaCornerBottomRight',
-        'PlazaLeft', 'PlazaMiddle', 'PlazaRight', 'PlazaTop', 'RoadBreakLeftToBottom',
-        'RoadBreakLeftToTop', 'RoadBreakRightToBottom', 'RoadBreakRightToTop', 'RoadHorizontal',
-        'RoadVertical', 'RoadSignForest', 'Store', 'TopEdgeFence', 'Tree1', 'Tree2', 'Tree3', 'TextBubble',
-        'BenchBack', 'Firepit', 'Gate', 'RoadEnd', 'RoadTCross', 'Bush', 'LongFence', 'LargeFog', 'SmallFog',
+        'RightEdgeForest', 'MediumStone', 'SmallStone', 'TinyStone', 'Glade1Roads', 'Glade2Roads',
+        'RoadSignForest', 'Store', 'TopEdgeFence', 'Tree1', 'Tree2', 'Tree3', 'TextBubble',
+        'BenchBack', 'Firepit', 'Gate', 'Bush', 'LongFence', 'LargeFog', 'SmallFog',
         'DeadTree1', 'DeadTree2', 'DeadTree3', 'DeadBush', 'PlainBush1', 'PlainBush2', 'Leaves', 'Gradient',
-        'RoadSignPath1', 'RoadSignPath2', 'StonePathMiddle', 'StonePathRight', 'StonePathLeft', 'StonePathTop',
-        'StonePathBottom', 'StonePathVertical', 'StonePathHorizontal', 'StonePathTopRightCorner', 'StonePathTopLeftCorner',
-        'StonePathBottomRightCorner', 'StonePathBottomLeftCorner', 'EmberHouse', 'EmberHouseNoRoof', 'EmberHouseRoofHalfOff',
+        'RoadSignPath1', 'RoadSignPath2', 'EmberHouse', 'EmberHouseNoRoof', 'EmberHouseRoofHalfOff',
         'EmberFootprints', 'EmberTeddy', 'PlainBushEdge', 'Invisible', 'Questionmark', 'HappyEmber', 'Exclamationmark',
         'ExclamationmarkArrow','ChatBubble', 'TextBubbleSmall', 'Welcome', 'Thanks', 'Controls', 'Background',
-        'Spacebar', 'ControlsTip', 'Paused', 'Tips'
+        'Spacebar', 'ControlsTip', 'Paused', 'Tips', 'GreenvalleyRoads', 'ForestRoads', 'ForestBottom', 'ForestRight'
     ]
         
     assets.forEach(asset => {
@@ -105,13 +100,6 @@ class Load {
         key: "greg_idle",
         frames: [{ key: "greg", frame: 1 }],
         frameRate: 1
-    });
-
-    this.anims.create({
-        key: "greg_talk",
-        frames: [{ key: "greg", frame: 2 }, { key: "greg", frame: 3 }],
-        frameRate: 4,
-        repeat: -1
     });
 
     this.anims.create({

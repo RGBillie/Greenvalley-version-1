@@ -271,53 +271,7 @@ objects.forEach(data => {
     this.lilypads.play("lilypads"),
 
       // **PLACERING AF VEJE OG PLADS**
-      this.add.image(3510, 106, "stonepathvertical").setDepth(0);
-      this.add.image(3510, 341, "stonepathvertical").setDepth(0);
-      this.add.image(3510, 576, "stonepathvertical").setDepth(0);
-      this.add.image(3510, 811, "stonepathvertical").setDepth(0);
-      this.add.image(3510, 1046, "stonepathvertical").setDepth(0);
-      this.add.image(3510, 1281, "stonepathvertical").setDepth(0);
-      this.add.image(3510, 1516, "stonepathvertical").setDepth(0);
-      this.add.image(3510, 1751, "stonepathvertical").setDepth(0);
-      this.add.image(3510, 1986, "stonepathvertical").setDepth(0);
-      this.add.image(3510, 2221, "stonepathvertical").setDepth(0);
-
-      this.add.image(3166, 2456, "stonepathhorizontal").setDepth(1);
-      this.add.image(3510, 2456, "stonepathbottom").setDepth(1);
-      this.add.image(3852, 2456, "stonepathhorizontal").setDepth(1);
-      this.add.image(4194, 2456, "stonepathtoprightcorner").setDepth(1);
-
-      this.add.image(3166, 3393, "stonepathhorizontal").setDepth(1);
-      this.add.image(3510, 3393, "stonepathhorizontal").setDepth(1);
-      this.add.image(3852, 3393, "stonepathhorizontal").setDepth(1);
-      this.add.image(4194, 3393, "stonepathbottomrightcorner").setDepth(1);
-
-      this.add.image(4194, 2924, "stonepathvertical").setDepth(1);
-      this.add.image(4194, 3158, "stonepathvertical").setDepth(1);
-      this.add.image(4194, 2690, "stonepathvertical").setDepth(1);
-
-      this.add.image(2822, 3158, "stonepathvertical").setDepth(1);
-      this.add.image(2822, 3393, "stonepathbottomleftcorner").setDepth(1);
-      this.add.image(2822, 2690, "stonepathvertical").setDepth(1);
-      this.add.image(2822, 2456, "stonepathtopleftcorner").setDepth(1);
-
-      this.add.image(2822, 2924, "stonepathright").setDepth(1);
-      this.add.image(2480, 2924, "stonepathhorizontal").setDepth(1);
-      this.add.image(2136, 2924, "stonepathhorizontal").setDepth(1);
-
-      this.add.image(1792, 2925, "stonepathtopleftcorner").setDepth(1);
-
-      this.add.image(1792, 3160, "stonepathvertical").setDepth(1);
-      this.add.image(1792, 3395, "stonepathvertical").setDepth(1);
-      this.add.image(1792, 3629, "stonepathvertical").setDepth(1);
-
-      this.add.image(1792, 3864, "stonepathbottomrightcorner").setDepth(1);
-;
-      this.add.image(1447, 3865, "stonepathhorizontal").setDepth(1);
-      this.add.image(1102, 3865, "stonepathhorizontal").setDepth(1);
-      this.add.image(757, 3865, "stonepathhorizontal").setDepth(1);
-      this.add.image(413, 3865, "stonepathhorizontal").setDepth(1);
-      this.add.image(70, 3865, "stonepathhorizontal").setDepth(1);
+      this.add.image(2410, 2226, "glade2roads").setDepth(0);
 
       this.block = this.physics.add.staticGroup();
       this.block.create(5230, 820).setSize(50, 1500).setOrigin(0.5, 0.5);
@@ -406,17 +360,19 @@ objects.forEach(data => {
 
       // **TILFØJ TASTATURSTYRING**
       this.keys = this.input.keyboard.addKeys({
-          up: Phaser.Input.Keyboard.KeyCodes.W,
-          down: Phaser.Input.Keyboard.KeyCodes.S,
-          left: Phaser.Input.Keyboard.KeyCodes.A,
-          right: Phaser.Input.Keyboard.KeyCodes.D,
-          e: Phaser.Input.Keyboard.KeyCodes.E,
-          f: Phaser.Input.Keyboard.KeyCodes.F,
-          p: Phaser.Input.Keyboard.KeyCodes.P,
-          c: Phaser.Input.Keyboard.KeyCodes.C,
-          enter: Phaser.Input.Keyboard.KeyCodes.ENTER,
-      });
-
+        up: Phaser.Input.Keyboard.KeyCodes.W,
+        down: Phaser.Input.Keyboard.KeyCodes.S,
+        left: Phaser.Input.Keyboard.KeyCodes.A,
+        right: Phaser.Input.Keyboard.KeyCodes.D,
+        e: Phaser.Input.Keyboard.KeyCodes.E,
+        f: Phaser.Input.Keyboard.KeyCodes.F,
+        p: Phaser.Input.Keyboard.KeyCodes.P,
+        c: Phaser.Input.Keyboard.KeyCodes.C,
+        arrowUp: Phaser.Input.Keyboard.KeyCodes.UP,
+        arrowDown: Phaser.Input.Keyboard.KeyCodes.DOWN,
+        arrowLeft: Phaser.Input.Keyboard.KeyCodes.LEFT,
+        arrowRight: Phaser.Input.Keyboard.KeyCodes.RIGHT
+    });
       // **GRÆNSER (EDGE COLLISIONS)**
       this.edges = this.physics.add.staticGroup();
       this.edges.create(-100, 1590, "rightedgeforest").setOrigin(-0.3, 0.5).setDepth(1505).setFlipX(true);

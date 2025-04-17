@@ -99,27 +99,6 @@ class Playlevel2 extends Phaser.Scene {
     this.depthSortedObjects = [];
     const objects = [
 
-        //Bottom trees
-        { x: 440, y: 4420, key: "deadtree2" },
-        { x: 100, y: 4320, key: "tree2" },
-        { x: 800, y: 4300, key: "deadtree3" },
-        { x: 1150, y: 4450, key: "deadtree1" },
-        { x: 1450, y: 4350, key: "deadtree2" },
-        { x: 1750, y: 4520, key: "deadtree3" },
-        { x: 1980, y: 4390, key: "deadtree1" },
-        { x: 2280, y: 4460, key: "deadtree2" },
-        { x: 2560, y: 4510, key: "deadtree1" },
-        { x: 2850, y: 4310, key: "deadtree2" },
-        { x: 3050, y: 4470, key: "deadtree3" },
-        { x: 3250, y: 4510, key: "deadtree2" },
-        { x: 3550, y: 4490, key: "deadtree3" },
-        { x: 3870, y: 4360, key: "tree1" },
-        { x: 4150, y: 4460, key: "deadtree2" },
-        { x: 4400, y: 4460, key: "tree1" },
-        { x: 4700, y: 4390, key: "deadtree3" },
-        { x: 4960, y: 4400, key: "tree2" },
-        { x: 5270, y: 4560, key: "tree1" },
-
         //Top trees
         { x: 440, y: 150, key: "largefog" },
         { x: 840, y: 320, key: "smallfog" },
@@ -182,7 +161,6 @@ class Playlevel2 extends Phaser.Scene {
         { x: 3960, y: 2600, key: "smallfog" },
         { x: 4950, y: 2700, key: "deadtree3" },
         { x: 4950, y: 2000, key: "deadtree1" },
-        { x: 5100, y: 3500, key: "tree3" },
         { x: 4850, y: 2790, key: "plainbush1" },
         { x: 4900, y: 2000, key: "plainbush2" },
         { x: 4850, y: 3600, key: "bushpinkflowers" },
@@ -347,18 +325,6 @@ class Playlevel2 extends Phaser.Scene {
         { x: 1280, y: 650, key: "smallfog" },
         { x: 2080, y: 500, key: "largefog" },
 
-        //Right Edge
-        { x: 5200, y: 2400, key: "deadtree3" },
-        { x: 5200, y: 2100, key: "deadtree2" },
-        { x: 5200, y: 1800, key: "deadtree1" },
-        { x: 5200, y: 1130, key: "deadtree3" },
-        { x: 5200, y: 800, key: "deadtree1" },
-        { x: 5200, y: 500, key: "deadtree3" },
-        { x: 5200, y: 2800, key: "deadtree1" },
-        { x: 5200, y: 3200, key: "deadtree2" },
-        { x: 5200, y: 3400, key: "deadtree3" },
-        { x: 5200, y: 4400, key: "deadtree2" },
-
         { x: 4853, y: 3805, key: "roadsignpath1" },
         { x: 4853, y: 1430, key: "roadsignpath2" },
     ];
@@ -419,83 +385,9 @@ objects.forEach(data => {
 
 
       // **PLACERING AF VEJE OG PLADS**
-      this.add.image(2484, 2681, "roadhorizontal").setDepth(1);
-      this.add.image(2830, 2681, "roadhorizontal").setDepth(1);
-      this.add.image(3177, 2681, "plazabottom").setDepth(1);
-      this.add.image(3177, 2444, "roadvertical").setDepth(1);
-      this.add.image(3177, 2206, "roadvertical").setDepth(1);
-      this.add.image(3177, 1968, "roadvertical").setDepth(1);
-      this.add.image(3177, 1730, "roadtcross").setDepth(1).setFlipX(true);
-      this.add.image(3524, 1730, "roadhorizontal").setDepth(1);
-      this.add.image(3868, 1730, "roadhorizontal").setDepth(1);
-      this.add.image(4212, 1730, "roadhorizontal").setDepth(1);
-      this.add.image(4558, 1730, "plazatop").setDepth(1);
-      this.add.image(4904, 1730, "roadhorizontal").setDepth(1);
-      this.add.image(5250, 1730, "roadhorizontal").setDepth(1);
-      this.add.image(3177, 1493, "roadvertical").setDepth(1);
-      this.add.image(3177, 1255, "roadvertical").setDepth(1);
-      this.add.image(2138, 2681, "plazamiddle").setDepth(1);
-      this.add.image(1792, 2681, "roadhorizontal").setDepth(1);
-      this.add.image(1445, 2681, "roadhorizontal").setDepth(1);
-      this.add.image(1098, 2681, "plazabottom").setDepth(1);
-      this.add.image(2136, 1017, "plazatop").setDepth(1);
-      this.add.image(1790, 1015, "roadhorizontal").setDepth(1);
-      this.add.image(1443, 1015, "roadhorizontal").setDepth(1);
-      this.add.image(1098, 1015, "roadbreakrighttobottom").setDepth(1);
-      this.add.image(1098, 1255, "roadvertical").setDepth(1);
-      this.add.image(1098, 1493, "roadvertical").setDepth(1);
-      this.add.image(1098, 1730, "roadvertical").setDepth(1);
-      this.add.image(1098, 1968, "roadvertical").setDepth(1);
-      this.add.image(1098, 2444, "roadvertical").setDepth(1);
-      this.add.image(1098, 2206, "roadvertical").setDepth(1);
-      this.add.image(2480, 1015, "roadhorizontal").setDepth(1);
-      this.add.image(2827, 1015, "roadhorizontal").setDepth(1);
-      this.add.image(2138, 1255, "roadvertical").setDepth(1);
-      this.add.image(2138, 1493, "roadvertical").setDepth(1);
-      this.add.image(2138, 1730, "roadvertical").setDepth(1);
-      this.add.image(2138, 1968, "roadvertical").setDepth(1);
-      this.add.image(2138, 2444, "roadvertical").setDepth(1);
-      this.add.image(2138, 2206, "roadvertical").setDepth(1);
-      this.add.image(2138, 2918, "roadvertical").setDepth(1);
-      this.add.image(2138, 3154, "roadvertical").setDepth(1);
-      this.add.image(2138, 3392, "roadvertical").setDepth(1);
-      this.add.image(2138, 3629, "roadvertical").setDepth(1);
-      this.add.image(2136, 3862, "roadbreaklefttotop").setDepth(1);
-      this.add.image(1792, 3865, "roadhorizontal").setDepth(1);
-      this.add.image(1445, 3865, "roadhorizontal").setDepth(1);
-      this.add.image(1099, 3865, "roadhorizontal").setDepth(1);
-      this.add.image(752, 3865, "plazabottom").setDepth(1);
-      this.add.image(752, 3629, "roadvertical").setDepth(1);
-      this.add.image(752, 3392, "roadvertical").setDepth(1);
-      this.add.image(752, 3154, "roadvertical").setDepth(1);
-      this.add.image(752, 2918, "roadvertical").setDepth(1);
-      this.add.image(752, 2681, "roadbreakrighttobottom").setDepth(1);
-      this.add.image(3520, 2681, "roadbreaklefttobottom").setDepth(1);
-      this.add.image(3522, 2917, "roadvertical").setDepth(1);
-      this.add.image(3522, 3155, "roadtcross").setDepth(1).setFlipX(true);
-      this.add.image(3522, 3393, "roadvertical").setDepth(1);
-      this.add.image(3522, 3631, "roadvertical").setDepth(1);
-      this.add.image(3522, 3870, "roadvertical").setDepth(1);
-      this.add.image(3524, 4108, "roadbreakrighttotop").setDepth(1);
-      this.add.image(3868, 4109, "roadhorizontal").setDepth(1);
-      this.add.image(4212, 4109, "roadhorizontal").setDepth(1);
-      this.add.image(4558, 1968, "roadvertical").setDepth(1);
-      this.add.image(4558, 2206, "roadvertical").setDepth(1);
-      this.add.image(4558, 2444, "roadvertical").setDepth(1);
-      this.add.image(4558, 2681, "roadvertical").setDepth(1);
-      this.add.image(4558, 2917, "roadvertical").setDepth(1);
-      this.add.image(4558, 3155, "roadtcross").setDepth(1);
-      this.add.image(3868, 3155, "roadhorizontal").setDepth(1);
-      this.add.image(4212, 3155, "roadhorizontal").setDepth(1);
-      this.add.image(4558, 3393, "roadvertical").setDepth(1);
-      this.add.image(4558, 3631, "roadvertical").setDepth(1);
-      this.add.image(4558, 3870, "roadvertical").setDepth(1);
-      this.add.image(4558, 4109, "plazabottom").setDepth(1);
-      this.add.image(4904, 4109, "roadhorizontal").setDepth(1);
-      this.add.image(5250, 4109, "roadhorizontal").setDepth(1);
-      this.add.image(3177, 1015, "roadbreaklefttobottom").setDepth(1);
-      this.add.image(407, 3865, "roadhorizontal").setDepth(1);
-      this.add.image(57, 3865, "roadhorizontal").setDepth(1);
+      this.add.image(2684, 2151, "forestroads").setDepth(1);
+      this.add.image(2684, 2301, "forestbottom").setDepth(1000);
+      this.add.image(2534, 2371, "forestright").setDepth(1000);
 
       this.block = this.physics.add.staticGroup();
       this.block.create(5230, 820).setSize(50, 1500).setOrigin(0.5, 0.5);
@@ -585,16 +477,19 @@ objects.forEach(data => {
 
       // **TILFØJ TASTATURSTYRING**
       this.keys = this.input.keyboard.addKeys({
-          up: Phaser.Input.Keyboard.KeyCodes.W,
-          down: Phaser.Input.Keyboard.KeyCodes.S,
-          left: Phaser.Input.Keyboard.KeyCodes.A,
-          right: Phaser.Input.Keyboard.KeyCodes.D,
-          e: Phaser.Input.Keyboard.KeyCodes.E,
-          f: Phaser.Input.Keyboard.KeyCodes.F,
-          p: Phaser.Input.Keyboard.KeyCodes.P,
-          c: Phaser.Input.Keyboard.KeyCodes.C,
-          enter: Phaser.Input.Keyboard.KeyCodes.ENTER,
-      });
+        up: Phaser.Input.Keyboard.KeyCodes.W,
+        down: Phaser.Input.Keyboard.KeyCodes.S,
+        left: Phaser.Input.Keyboard.KeyCodes.A,
+        right: Phaser.Input.Keyboard.KeyCodes.D,
+        e: Phaser.Input.Keyboard.KeyCodes.E,
+        f: Phaser.Input.Keyboard.KeyCodes.F,
+        p: Phaser.Input.Keyboard.KeyCodes.P,
+        c: Phaser.Input.Keyboard.KeyCodes.C,
+        arrowUp: Phaser.Input.Keyboard.KeyCodes.UP,
+        arrowDown: Phaser.Input.Keyboard.KeyCodes.DOWN,
+        arrowLeft: Phaser.Input.Keyboard.KeyCodes.LEFT,
+        arrowRight: Phaser.Input.Keyboard.KeyCodes.RIGHT
+    });
 
       // **GRÆNSER (EDGE COLLISIONS)**
       this.edges = this.physics.add.staticGroup();
@@ -635,7 +530,7 @@ objects.forEach(data => {
         // 2. Now call the function with the text
         this.writeTextNpc('This place looks scary.. I might want to find a way out of this forest soon. Maybe something can lead me to a pleasent path, or if I am more daring a can find a more spooky path.');
         
-        this.add.image(this.cameras.main.centerX-920, this.cameras.main.centerY-500, 'tips').setScrollFactor(0).setDepth(9999);
+        //this.add.image(this.cameras.main.centerX-920, this.cameras.main.centerY-500, 'tips').setScrollFactor(0).setDepth(9999);
     }
 
   update() {

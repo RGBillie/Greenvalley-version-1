@@ -10,28 +10,28 @@ function handlePlayerMovementWithEmber(player, keys, depthSortedObjects) {
     player.isMoving = false;
     player.setVelocity(0);
 
-    // Handle movement inputs
-    if (keys.left.isDown) {
+    // Handle movement inputs - now checking both WASD and arrow keys
+    if (keys.left.isDown || keys.arrowLeft.isDown) {
         player.setVelocityX(-400);
         player.anims.play("alexember_walk", true);
         player.flipX = true;
         player.isMoving = true;
         player.lastDirection = 'left';
     } 
-    else if (keys.right.isDown) {
+    else if (keys.right.isDown || keys.arrowRight.isDown) {
         player.setVelocityX(400);
         player.anims.play("alexember_walk", true);
         player.flipX = false;
         player.isMoving = true;
         player.lastDirection = 'right';
     } 
-    else if (keys.up.isDown) {
+    else if (keys.up.isDown || keys.arrowUp.isDown) {
         player.setVelocityY(-400);
         player.anims.play("alexember_walk_front", true);
         player.isMoving = true;
         player.lastDirection = 'up';
     } 
-    else if (keys.down.isDown) {
+    else if (keys.down.isDown || keys.arrowDown.isDown) {
         player.setVelocityY(400);
         player.anims.play("alexember_walk_back", true);
         player.isMoving = true;
@@ -60,7 +60,7 @@ function handlePlayerMovementWithEmber(player, keys, depthSortedObjects) {
         }
     }
 
-    // Depth sorting
+    // Depth sorting (unchanged)
     if (player && player.body) {
         player.setDepth(player.getBottomCenter().y);
     }
