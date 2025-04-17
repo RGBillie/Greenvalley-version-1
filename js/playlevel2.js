@@ -503,9 +503,8 @@ objects.forEach(data => {
       this.block.create(5230, 4380).setSize(50, 200).setOrigin(0.5, 0.5);
 
       //MUSIC
-      let music;
-      music = this.sound.add('musicCozy', { loop: true, volume: 0.5 });
-      //music.play()
+      this.music = this.sound.add('musicSpooky', { loop: true, volume: 0.1 });
+      this.music.play()
 
       // **TILFØJ SPILLEREN (ALEX)**
       const playerState = this.registry.get('playerState') || { 
@@ -742,6 +741,7 @@ objects.forEach(data => {
             texture: this.emberCarried ? 'alexember' : 'alex',
             isCarryingEmber: this.emberCarried
         });
+        this.destroy()
         this.scene.start('Playlevel3', { currentLevel: this.scene.key });
     }
   }
@@ -850,8 +850,5 @@ objects.forEach(data => {
         this.events.off('update');
     
         // Call parent destroy
-        super.destroy();
-        
-        console.log('Playlevel2 scene destroyed'); // For debugging
     }
 }

@@ -326,7 +326,7 @@ objects.forEach(data => {
 
       //MUSIC
       let music;
-      music = this.sound.add('musicCozy', { loop: true, volume: 0.5 });
+      music = this.sound.add('musicCozy', { loop: true, volume: 0.1 });
       //music.play()
 
       // **TILFØJ SPILLEREN (ALEX)**
@@ -603,6 +603,7 @@ objects.forEach(data => {
             texture: this.emberCarried ? 'alexember' : 'alex',
             isCarryingEmber: this.emberCarried
         });
+        this.destroy()
         this.scene.start('Playlevel5', { currentLevel: this.scene.key });
     }
   }
@@ -1005,10 +1006,6 @@ objects.forEach(data => {
         this.events.off('update');
         this.input.keyboard.off('keydown');
         this.input.keyboard.off('keyup');
-    
-        // Call parent destroy
-        super.destroy();
-        
-        console.log('Playlevel4 scene destroyed'); // For debugging
+
     }
 }

@@ -252,7 +252,7 @@ class Playlevel5 extends Phaser.Scene {
   
         //MUSIC
         //let music;
-        //music = this.sound.add('musicCozy', { loop: true, volume: 0.5 });
+        //music = this.sound.add('musicCozy', { loop: true, volume: 0.1 });
         //music.play();
   
         // **TILFØJ SPILLEREN (ALEX)**
@@ -670,7 +670,7 @@ showGregDialogue() {
       
         this.cameras.main.fadeOut(1000, 0, 0, 0);
         this.time.delayedCall(1000, () => {
-            this.scene.start('Playlevel2');
+            this.scene.start('ending');
         });
     }
 
@@ -809,5 +809,10 @@ showGregDialogue() {
         this.keys = null;
         this.nearNPC = null;
         this.currentTalkingNPC = null;
+
+        if (this.music) {
+            this.music.stop();
+            this.music.destroy();
+        }
     }
   }

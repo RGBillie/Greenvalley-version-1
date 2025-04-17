@@ -251,9 +251,8 @@ objects.forEach(data => {
       this.add.image(754, 2446, "plazacornertopleft").setDepth(1);
 
       //MUSIC
-      //let music;
-      //music = this.sound.add('musicCozy', { loop: true, volume: 0.1 });
-      //music.play();
+      this.music = this.sound.add('musicCozy', { loop: true, volume: 0.1 });
+      this.music.play();
 
       // **TILFØJ SPILLEREN (ALEX)**
       this.player = this.physics.add.sprite(2150, 4230, "alex", 3)
@@ -878,7 +877,9 @@ hideNPCDialog(npc) {
 
             console.log('Saved playerState:', this.registry.get('playerState'));
 
+            this.destroy()            
             this.scene.start('Playlevel2', { currentLevel: this.scene.key });
+
         }
     }
 
@@ -1131,7 +1132,5 @@ hideNPCDialog(npc) {
         this.benchColliders?.destroy();
         this.edges?.destroy();
     
-        // Call parent destroy
-        super.destroy();
     }
 }

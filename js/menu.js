@@ -21,10 +21,9 @@ class Menu extends Phaser.Scene {
       // 3. Add your menu elements (fixed to camera)
       this.addMenuElements();
 
-    // MUSIK
-    //this.epilogueMusic = this.sound.add('epiloguemusic'); 
-    //this.epilogueMusic.loop = true;
-    //this.epilogueMusic.play();
+      //MUSIC
+      this.music = this.sound.add('musicCozy', { loop: true, volume: 0.1 });
+      //this.music.play();
 
     // HJELPE TEKST OG BILLEDER    
     // Viser hjælpe teksten i menuen igen når man lukker help menuen
@@ -61,6 +60,7 @@ class Menu extends Phaser.Scene {
 
     if(this.space.isDown) {
       this.scene.stop('menu');
+      this.music.stop()
       this.scene.run('Playlevel1');
     }  
 

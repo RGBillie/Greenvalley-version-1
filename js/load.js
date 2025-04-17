@@ -2,6 +2,8 @@ class Load {
   preload() {
     //Load Music
     this.load.audio('musicCozy', 'assets/music/cozy.mp3');
+    this.load.audio('musicSad', 'assets/music/sad.mp3');
+    this.load.audio('musicSpooky', 'assets/music/spooky.mp3');
 
 
     // Load spritesheets

@@ -339,9 +339,8 @@ objects.forEach(data => {
       this.block.create(5230, 4380).setSize(50, 200).setOrigin(0.5, 0.5);
 
       //MUSIC
-      let music;
-      music = this.sound.add('musicCozy', { loop: true, volume: 0.5 });
-      //music.play()
+      this.music = this.sound.add('musicSad', { loop: true, volume: 0.1 });
+      this.music.play()
 
       // **TILFØJ SPILLEREN (ALEX)**
       const playerState = this.registry.get('playerState') || { 
@@ -612,6 +611,7 @@ if (this.currentInteractable && Phaser.Input.Keyboard.JustDown(this.keys.e) && !
             texture: this.emberCarried ? 'alexember' : 'alex',
             isCarryingEmber: this.emberCarried
         });
+        this.destroy()
         this.scene.start('Playlevel4', { currentLevel: this.scene.key });
     }
   }
@@ -773,8 +773,6 @@ if (this.currentInteractable && Phaser.Input.Keyboard.JustDown(this.keys.e) && !
             });
         }
         
-        // Call parent destroy
-        super.destroy();
     }
     
 }

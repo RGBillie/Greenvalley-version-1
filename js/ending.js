@@ -5,6 +5,7 @@ class Ending extends Phaser.Scene {
 
   create() {
         // 1. Create LARGE background (bigger than screen)
+        this.cameras.main.fadeIn(1000, 0, 0, 0);
         this.background = this.add.image(0, 0, 'background')
         .setOrigin(0, 0)
         .setDisplaySize(2800, 1700); // 2x screen size (adjust as needed)
@@ -20,10 +21,9 @@ class Ending extends Phaser.Scene {
       // 3. Add your menu elements (fixed to camera)
       this.addMenuElements();
 
-    // MUSIK
-    //this.epilogueMusic = this.sound.add('epiloguemusic'); 
-    //this.epilogueMusic.loop = true;
-    //this.epilogueMusic.play();
+      //MUSIC
+      this.music = this.sound.add('musicCozy', { loop: true, volume: 0.1 });
+      //this.music.play();
 
     // HJELPE TEKST OG BILLEDER    
     // Viser hjælpe teksten i menuen igen når man lukker help menuen
@@ -60,7 +60,7 @@ class Ending extends Phaser.Scene {
 
     if(this.space.isDown) {
       this.cameras.main.fadeOut(1000, 0, 0, 0);
-        
+      this.music.stop();
       // When fade completes, switch scenes
       this.cameras.main.once('camerafadeoutcomplete', () => {
           this.scene.stop('ending');
