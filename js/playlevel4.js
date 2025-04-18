@@ -271,7 +271,7 @@ objects.forEach(data => {
     this.lilypads.play("lilypads"),
 
       // **PLACERING AF VEJE OG PLADS**
-      this.add.image(2410, 2226, "glade2roads").setDepth(0);
+      this.add.image(2410, 2180, "glade2roads").setDepth(0);
 
       this.block = this.physics.add.staticGroup();
       this.block.create(5230, 820).setSize(50, 1500).setOrigin(0.5, 0.5);
@@ -279,9 +279,8 @@ objects.forEach(data => {
       this.block.create(5230, 4380).setSize(50, 200).setOrigin(0.5, 0.5);
 
       //MUSIC
-      let music;
-      music = this.sound.add('musicCelebration', { loop: true, volume: 0.1 });
-      music.play()
+      this.music = this.sound.add('musicCelebration', { loop: true, volume: 0.1 });
+      this.music.play()
 
       // **TILFØJ SPILLEREN (ALEX)**
       const playerState = this.registry.get('playerState') || { 

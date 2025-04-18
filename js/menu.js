@@ -22,8 +22,8 @@ class Menu extends Phaser.Scene {
       this.addMenuElements();
 
       //MUSIC
-      this.music = this.sound.add('musicCozy', { loop: true, volume: 0.1 });
-      //this.music.play();
+      this.music = this.sound.add('musicHappy', { loop: true, volume: 0.1 });
+      this.music.play();
 
     // HJELPE TEKST OG BILLEDER    
     // Viser hjælpe teksten i menuen igen når man lukker help menuen

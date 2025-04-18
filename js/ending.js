@@ -22,8 +22,8 @@ class Ending extends Phaser.Scene {
       this.addMenuElements();
 
       //MUSIC
-      this.music = this.sound.add('musicCozy', { loop: true, volume: 0.1 });
-      //this.music.play();
+      this.music = this.sound.add('musicHappy', { loop: true, volume: 0.1 });
+      this.music.play();
 
     // HJELPE TEKST OG BILLEDER    
     // Viser hjælpe teksten i menuen igen når man lukker help menuen
@@ -35,7 +35,6 @@ class Ending extends Phaser.Scene {
     
     // KEYS
     this.cKey = this.input.keyboard.addKey('c');
-    this.space = this.input.keyboard.addKey('space');
   }
 
   update() {
@@ -56,17 +55,6 @@ class Ending extends Phaser.Scene {
     if (cam.scrollY <= 0 || cam.scrollY >= 1400 - screenHeight) {
       this.cameraSpeed.y *= -1;
     }
-
-
-    if(this.space.isDown) {
-      this.cameras.main.fadeOut(1000, 0, 0, 0);
-      this.music.stop();
-      // When fade completes, switch scenes
-      this.cameras.main.once('camerafadeoutcomplete', () => {
-          this.scene.stop('ending');
-          this.scene.start('menu');
-      });
-    }  
   }
 
   addMenuElements() {
@@ -79,16 +67,5 @@ class Ending extends Phaser.Scene {
       'thanks'
     ).setOrigin(0.5);
     container.add(title);
-
-    let startText = 'Press the SPACE bar on your keyboard to return to the menu';
-    this.startLabel = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY*1.3, startText, { font: '32px Arial', fill: '#fff' }).setOrigin(0.5, 0.5).setScrollFactor(0);    
-    this.spacebar = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY*1.5, 'spacebar').setOrigin(0.5, 0.5).setScrollFactor(0);
-    this.tweens.add({
-      targets: [this.startLabel, this.spacebar],
-      angle: { from: -2, to: 2 },
-      duration: 1000, 
-      yoyo: true,
-      repeat: -1,
-    });  
   }
 }

@@ -4,6 +4,8 @@ class Load {
     this.load.audio('musicCozy', 'assets/music/cozy.mp3');
     this.load.audio('musicSad', 'assets/music/sad.mp3');
     this.load.audio('musicSpooky', 'assets/music/spooky.mp3');
+    this.load.audio('musicCelebration', 'assets/music/celebration.mp3');
+    this.load.audio('musicHappy', 'assets/music/happy.mp3');
 
 
     // Load spritesheets
@@ -41,7 +43,7 @@ class Load {
     });
 
     // Loading screen
-    this.add.text(500, 340, 'Loading...', { font: '38px Arial', fill: '#fff' }).setOrigin(0.5, 0.5);
+    this.add.text(this.cameras.main.centerX, this.cameras.main.centerY, 'Loading...', { font: '38px Arial', fill: '#fff' }).setOrigin(0.5, 0.5);
   }
 
   create() {
@@ -204,6 +206,6 @@ class Load {
 
 
 
-    this.scene.start('menu');  
+    this.scene.start('ending');  
   }
 }

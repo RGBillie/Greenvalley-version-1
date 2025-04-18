@@ -1,7 +1,7 @@
 let game = new Phaser.Game({
   width: 1050,
   height: 740, 
-  backgroundColor: '#ef92be', 
+  backgroundColor: '#95c180', 
   type: Phaser.AUTO, // Auto-switch to Canvas if WebGL fails
   render: {
     roundPixels: true,

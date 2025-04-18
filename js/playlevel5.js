@@ -536,6 +536,7 @@ showGregDialogue() {
         this.interactionLock = false; // Make sure to unlock interactions
         this.cameras.main.fadeOut(1000, 0, 0, 0);
         this.time.delayedCall(1000, () => {
+            this.destroy();
             this.scene.start('ending');
         });
     };
