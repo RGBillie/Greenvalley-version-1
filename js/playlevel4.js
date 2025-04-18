@@ -280,8 +280,8 @@ objects.forEach(data => {
 
       //MUSIC
       let music;
-      music = this.sound.add('musicCozy', { loop: true, volume: 0.1 });
-      //music.play()
+      music = this.sound.add('musicCelebration', { loop: true, volume: 0.1 });
+      music.play()
 
       // **TILFØJ SPILLEREN (ALEX)**
       const playerState = this.registry.get('playerState') || { 

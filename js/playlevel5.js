@@ -193,10 +193,8 @@ class Playlevel5 extends Phaser.Scene {
         // **PLACERING AF VEJE OG PLADS**
         this.add.image(2664, 2271, "greenvalleyroads").setDepth(1);
         
-        //MUSIC
-        //let music;
-        //music = this.sound.add('musicCozy', { loop: true, volume: 0.1 });
-        //music.play();
+        this.music = this.sound.add('musicHappy', { loop: true, volume: 0.1 });
+        this.music.play();
   
         // **TILFØJ SPILLEREN (ALEX)**
         this.player = this.physics.add.sprite(2150, 4230, "alex", 3)
